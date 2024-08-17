@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Baby Name Generator</title>
+</head>
+<body>
+    <h1>Baby Name Generator</h1>
+    <form method="POST">
+        <label for="gender">Select Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="Boy">Boy</option>
+            <option value="Girl">Girl</option>
+            <option value="Unisex">Unisex</option>
+        </select><br><br>
+        <label for="first_letter">Optional: First Letter:</label>
+        <input type="text" id="first_letter" name="first_letter" maxlength="1"><br><br>
+        <input type="submit" value="Generate Names">
+    </form>
+    {% if suggestions %}
+        <h2>Suggested Names:</h2>
+        <ul>
+            {% for name in suggestions %}
+                <li>{{ name }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
