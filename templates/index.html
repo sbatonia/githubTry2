@@ -1,28 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baby Name Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        label, select, input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        input[type="text"], select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #e0f7fa;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Baby Name Generator</h1>
-    <form method="POST">
-        <label for="gender">Select Gender:</label>
-        <select id="gender" name="gender" required>
-            <option value="Boy">Boy</option>
-            <option value="Girl">Girl</option>
-            <option value="Unisex">Unisex</option>
-        </select><br><br>
-        <label for="first_letter">Optional: First Letter:</label>
-        <input type="text" id="first_letter" name="first_letter" maxlength="1"><br><br>
-        <input type="submit" value="Generate Names">
-    </form>
-    {% if suggestions %}
-        <h2>Suggested Names:</h2>
-        <ul>
-            {% for name in suggestions %}
-                <li>{{ name }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+    <div class="container">
+        <h1>Baby Name Generator</h1>
+        <form method="POST">
+            <label for="gender">Select Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="Boy">Boy</option>
+                <option value="Girl">Girl</option>
+                <option value="Unisex">Unisex</option>
+            </select><br>
+            <label for="first_letter">Optional: First Letter:</label>
+            <input type="text" id="first_letter" name="first_letter" maxlength="1"><br>
+            <input type="submit" value="Generate Names">
+        </form>
+        {% if suggestions %}
+            <h2>Suggested Names:</h2>
+            <ul>
+                {% for name in suggestions %}
+                    <li>{{ name }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
 </body>
 </html>
